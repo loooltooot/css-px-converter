@@ -9,6 +9,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String _pxS = '0';
+  String _pxW = '1920';
+  String _pxH = '1080';
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            const Padding(padding: EdgeInsets.fromLTRB(0, 40, 0, 0)),
+            const Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 0)),
             const Text('px'),
             Container(
               margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
@@ -33,6 +35,45 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                   setState(() {});
                 },
+                decoration: const InputDecoration(
+                  hintText: '0'
+                ),
+              ),
+            ),
+            const Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 0)),
+            const Text('width'),
+            Container(
+              margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+              child: TextField(
+                onChanged: (value) {
+                  if(value.isEmpty) {
+                    _pxW = '1920';
+                  } else {
+                    _pxW = value;
+                  }
+                  setState(() {});
+                },
+                decoration: const InputDecoration(
+                    hintText: '1920'
+                ),
+              ),
+            ),
+            const Padding(padding: EdgeInsets.fromLTRB(0, 20, 0, 0)),
+            const Text('height'),
+            Container(
+              margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+              child: TextField(
+                onChanged: (value) {
+                  if(value.isEmpty) {
+                    _pxH = '1080';
+                  } else {
+                    _pxH = value;
+                  }
+                  setState(() {});
+                },
+                decoration: const InputDecoration(
+                    hintText: '1080'
+                ),
               ),
             ),
             const Padding(padding: EdgeInsets.fromLTRB(0, 40, 0, 0)),
@@ -49,8 +90,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Column(
                 children: [
-                  Text('${(((int.tryParse(_pxS) ?? 0) / 1920) * 10000).ceil() / 100} vw'),
-                  Text('${(((int.tryParse(_pxS) ?? 0) / 1080) * 10000).ceil() / 100} vh')
+                  Text('${(((int.tryParse(_pxS) ?? 0) / (int.tryParse(_pxW) ?? 1920)) * 10000).ceil() / 100} vw'),
+                  Text('${(((int.tryParse(_pxS) ?? 0) / (int.tryParse(_pxH) ?? 1080)) * 10000).ceil() / 100} vh')
                 ],
               ),
             )
