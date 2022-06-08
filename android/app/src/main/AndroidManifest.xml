@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.css_px_converter">
    <application
-        android:label="css_px_converter"
+        android:label="PX:VW"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

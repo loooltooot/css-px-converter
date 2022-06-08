@@ -15,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Px —> vh & vw converter'),
         elevation: 0,
@@ -94,7 +95,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text('${(((int.tryParse(_pxS) ?? 0) / (int.tryParse(_pxH) ?? 1080)) * 10000).ceil() / 100} vh')
                 ],
               ),
-            )
+            ),
+            const Spacer(),
+            const Text('catalin software© 2022'),
+            const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
           ],
         ),
       ),
