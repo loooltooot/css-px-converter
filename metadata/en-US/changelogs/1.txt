@@ -1,0 +1,2 @@
+Release update:
+* Change width and height. No more defaults.
