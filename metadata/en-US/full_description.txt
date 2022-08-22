@@ -1,0 +1,5 @@
+This app allows you to easy convert static units to adaptive units with three steps:
+
+* set width of the screen;
+* set height of the screen;
+* enter value to get its converted to vw and vh value. 
